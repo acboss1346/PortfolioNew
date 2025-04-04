@@ -415,20 +415,48 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
-        .project-img {
+        .project-header {
             height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4a6bff 0%, #3a5bef 100%);
+            position: relative;
             overflow: hidden;
         }
         
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        .project-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+            transition: all 0.5s ease;
         }
         
-        .project-card:hover .project-img img {
-            transform: scale(1.1);
+        .project-card:hover .project-title {
+            transform: scale(1.05);
+        }
+        
+        .project-header:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255,255,255,0.3) 0%,
+                rgba(255,255,255,0) 60%
+            );
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+        }
+        
+        .project-card:hover .project-header:before {
+            transform: rotate(30deg) translate(20%, 20%);
         }
         
         .project-info {
@@ -650,6 +678,18 @@
             }
         }
         
+        @keyframes textGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
         .animate-fadeInUp {
             animation: fadeInUp 1s ease forwards;
         }
@@ -739,6 +779,10 @@
             
             .footer-links li {
                 margin: 5px 0;
+            }
+            
+            .project-title {
+                font-size: 24px;
             }
         }
     </style>
@@ -876,11 +920,10 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card animate__animated animate__fadeInUp">
-                    <div class="project-img">
-                        <img src="/Users/akshatchauhan/Desktop/Portfolio-final/portfolio.jpg" alt="Portfolio Website">
+                    <div class="project-header">
+                        <div class="project-title">Portfolio Website</div>
                     </div>
                     <div class="project-info">
-                        <h3>Portfolio Website</h3>
                         <p>A modern responsive portfolio website showcasing my skills, projects and education with smooth animations and clean design.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
@@ -888,17 +931,15 @@
                             <span class="project-tag">JavaScript</span>
                         </div>
                         <div class="project-links">
-                        
-                            <a href="https://github.com/acboss1346/Porfolio-Final"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/acboss1346/Porfolio-Final" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="project-img">
-                        <img src="/Users/akshatchauhan/Desktop/Portfolio-final/article summazrizer.jpg" alt="News Article Summarizer">
+                    <div class="project-header">
+                        <div class="project-title">News Article Summarizer</div>
                     </div>
                     <div class="project-info">
-                        <h3>News Article Summarizer</h3>
                         <p>A web application that summarizes news articles using natural language processing techniques to extract key information.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -974,8 +1015,8 @@
                 </ul>
                 <div class="social-links">
                     <a href="https://github.com/acboss1346" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/akshat-chauhan-8b80262a9/"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/akshat18710/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/akshat-chauhan-8b80262a9/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/akshat18710/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="copyright">
@@ -1067,7 +1108,3 @@
     </script>
 </body>
 </html>
-
-
-
-
